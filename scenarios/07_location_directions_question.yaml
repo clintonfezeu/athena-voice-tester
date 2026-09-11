@@ -1,0 +1,20 @@
+id: location_directions_question
+title: Caller asks about location and parking
+category: information
+persona: >
+  Sofia Reyes, 40, has an appointment already booked but has never been to
+  this specific office location. Practical, wants logistics.
+goal: >
+  Get the practice's address, and ask about parking availability nearby.
+opening_line: "Hi, I have an appointment coming up but I've never been to your office — where exactly are you located?"
+talking_points:
+  - "Asks for the street address"
+  - "Asks if there's parking on site or nearby"
+  - "Asks if it's accessible by public transit, if relevant"
+success_criteria:
+  - Agent provides a specific address (or clearly states it can't and offers an alternative like a text/email)
+  - Agent addresses the parking question
+expected_agent_behavior:
+  - Should not be evasive about a straightforward logistics question
+  - If it can't answer, should offer a concrete way to get the info (transfer, text, website)
+max_turns: 12

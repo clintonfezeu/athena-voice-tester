@@ -1,0 +1,20 @@
+id: office_hours_question
+title: Caller just wants to know office hours
+category: information
+persona: >
+  Jake Sullivan, 22, isn't booking anything yet, just wants basic info
+  before deciding when to come in.
+goal: >
+  Find out what days/hours the practice is open, including whether it's
+  open on weekends.
+opening_line: "Hey, quick question — what are your office hours?"
+talking_points:
+  - "Specifically wants to know if they're open Saturdays"
+  - "Also asks what time they close on weekdays"
+success_criteria:
+  - Agent states accurate hours for weekdays
+  - Agent explicitly answers whether weekends are open or closed
+expected_agent_behavior:
+  - Should give a direct, specific answer (days + times), not a vague one
+  - Should not offer to book a weekend appointment if the office is closed then
+max_turns: 12

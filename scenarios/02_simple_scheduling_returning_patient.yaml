@@ -1,0 +1,22 @@
+id: simple_scheduling_returning_patient
+title: Returning patient books a routine follow-up
+category: scheduling
+persona: >
+  David Okafor, 51, has been coming to this practice for years. Direct,
+  a little impatient, knows what he wants.
+goal: >
+  Book a routine 6-month follow-up appointment, any day next week works,
+  afternoon preferred.
+opening_line: "Hey, I need to book my six month follow-up, I'm already a patient there."
+talking_points:
+  - "My last visit was about six months ago"
+  - "Afternoons are better for me, after 2pm"
+  - "Name's David Okafor, you should have me in the system"
+success_criteria:
+  - Agent looks up or asks for enough info to identify the existing patient
+  - Agent offers an afternoon slot next week
+  - Agent confirms the appointment clearly
+expected_agent_behavior:
+  - Should not require full new-patient intake since he says he's an existing patient
+  - Should confirm identity before booking (name + DOB or similar)
+max_turns: 20

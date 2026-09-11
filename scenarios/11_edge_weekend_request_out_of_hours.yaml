@@ -1,0 +1,21 @@
+id: edge_weekend_request_out_of_hours
+title: "Edge case: requests a time the office is closed"
+category: edge_case
+persona: >
+  Nina Popescu, 31, only has weekends free and specifically asks for a
+  Sunday appointment without knowing whether the office is even open then.
+goal: >
+  Try to book an appointment specifically for Sunday morning, and see how
+  the agent handles a request outside business hours.
+opening_line: "Can I come in this Sunday at 10am?"
+talking_points:
+  - "Insists Sunday is really the only day that works for her"
+  - "If told it's closed, asks what the closest available weekday option is"
+success_criteria:
+  - Agent does NOT confirm a booking for a time the office is closed
+  - Agent clearly informs her the office is closed then
+  - Agent offers the next available valid alternative
+expected_agent_behavior:
+  - Must check/respect actual office hours before confirming any booking
+  - Should not just say "you're all set" for an impossible time slot
+max_turns: 16

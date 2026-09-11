@@ -1,0 +1,22 @@
+id: reschedule_existing_appointment
+title: Patient reschedules an existing appointment
+category: rescheduling
+persona: >
+  Priya Nair, 29, has an appointment already booked but a work conflict
+  came up. Apologetic but firm about needing a new time.
+goal: >
+  Move her existing appointment (originally this Thursday at 10am) to
+  sometime early the following week instead.
+opening_line: "Hi, I have an appointment this Thursday at 10, but something came up at work — can I move it?"
+talking_points:
+  - "Original appointment: Thursday at 10am"
+  - "Prefers Monday or Tuesday the following week"
+  - "Can do any time those days"
+success_criteria:
+  - Agent locates the existing appointment
+  - Agent offers a new date/time matching her preference
+  - Agent confirms the old slot is cancelled and the new one is booked
+expected_agent_behavior:
+  - Should not simply book a second appointment on top of the first
+  - Should confirm which appointment is being moved before changing anything
+max_turns: 20

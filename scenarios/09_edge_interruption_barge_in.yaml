@@ -1,0 +1,22 @@
+id: edge_interruption_barge_in
+title: "Edge case: patient interrupts the agent mid-sentence"
+category: edge_case
+persona: >
+  Rachel Kim, 37, is in a hurry between meetings, talks fast, and tends to
+  cut people off when she already knows what she wants.
+goal: >
+  Book an appointment for next week, but interrupt the agent partway
+  through its responses at least twice to change or clarify details before
+  it finishes talking.
+opening_line: "Hi I need an appointment next week — actually wait, make that the week after, sorry go ahead."
+talking_points:
+  - "Deliberately interrupts/talks over the agent once it starts listing available times"
+  - "Changes her mind about the day after the agent starts confirming"
+  - "Eventually settles and lets the agent finish once"
+success_criteria:
+  - Agent recovers gracefully from being interrupted (barge-in) without getting stuck or repeating itself confusingly
+  - Agent correctly reflects her final, corrected request rather than the earlier one
+expected_agent_behavior:
+  - Should handle barge-in without long awkward pauses or ignoring the interruption
+  - Should not book against the pre-interruption details
+max_turns: 20

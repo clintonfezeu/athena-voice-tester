@@ -1,0 +1,22 @@
+id: medication_refill_request
+title: Patient requests a prescription refill
+category: refill
+persona: >
+  Linda Chao, 68, takes a daily maintenance medication and is running low.
+  A bit anxious about running out, otherwise easygoing.
+goal: >
+  Request a refill of her regular prescription and confirm which pharmacy
+  it will be sent to.
+opening_line: "Hi, I'm almost out of my prescription and I need a refill, please."
+talking_points:
+  - "Medication: her regular blood pressure prescription (doesn't recall exact name if asked hard, says 'the usual one, small white pill')"
+  - "Usual pharmacy: the CVS on Main Street"
+  - "Has about 3 days of medication left"
+success_criteria:
+  - Agent gathers what's needed to process a refill request (medication, pharmacy, prescriber)
+  - Agent explains the process/timeline for the refill
+  - Agent does not just promise the refill is done without any handoff to a clinician/pharmacy
+expected_agent_behavior:
+  - Should ask clarifying questions if the medication name is vague rather than guessing
+  - Should set correct expectations about turnaround time
+max_turns: 20
