@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>athena-voice-tester dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>athena-voice-tester</h1>
+    <span class="subtitle">recorded calls · transcripts · bugs</span>
+  </header>
+
+  <main class="layout">
+    <aside class="call-list" id="call-list">
+      <div class="loading">Loading calls…</div>
+    </aside>
+
+    <section class="call-detail" id="call-detail">
+      <div class="empty-state">Select a call on the left to view its transcript and findings.</div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
