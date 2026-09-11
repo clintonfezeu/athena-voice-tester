@@ -1,0 +1,33 @@
+## Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+## Node / dashboard
+dashboard/node_modules/
+dashboard/dist/
+npm-debug.log*
+
+## Env / secrets
+.env
+.env.*
+!.env.example
+
+## Call artifacts (real recordings/transcripts are gitignored by default;
+## use data/sample/ for committed example fixtures instead)
+data/calls/*
+!data/calls/.gitkeep
+
+## OS / editor
+.DS_Store
+*.swp
+.vscode/
+.idea/
