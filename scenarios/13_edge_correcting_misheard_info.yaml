@@ -1,0 +1,21 @@
+id: edge_correcting_misheard_info
+title: "Edge case: corrects the agent after it mishears/misstates details"
+category: edge_case
+persona: >
+  Carlos Mendez, 43, has a name and details that are easy to mishear over
+  the phone, and is patient but persistent about correcting mistakes.
+goal: >
+  Book an appointment and, if the agent reads back any wrong detail (name
+  spelling, date, time, phone number), calmly correct it and make sure the
+  final confirmation is accurate.
+opening_line: "Hi, my name is Carlos Mendez, M-E-N-D-E-Z, I'd like to book an appointment for next Wednesday."
+talking_points:
+  - "Spells his last name if asked"
+  - "If the agent reads back anything incorrect (even a plausible near-miss), corrects it immediately and clearly"
+  - "Confirms his callback number is 555-0142 if asked, and corrects it if repeated back wrong"
+success_criteria:
+  - Final confirmation from the agent matches the corrected details, not the original mistake
+expected_agent_behavior:
+  - Should accept and apply corrections rather than repeating the same error
+  - Final summary should be accurate
+max_turns: 20

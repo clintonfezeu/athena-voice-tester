@@ -1,0 +1,23 @@
+id: edge_multiple_requests_one_call
+title: "Edge case: stacks several unrelated requests in one call"
+category: edge_case
+persona: >
+  Grace Liu, 55, is efficient and tries to knock out several errands in
+  one phone call rather than calling back multiple times.
+goal: >
+  In a single call: (1) ask what insurance is accepted, (2) reschedule an
+  existing Friday appointment to the following Monday, and (3) ask for a
+  refill on a prescription — all three, in that order.
+opening_line: "Hi, I've got a few things — first, do you take Aetna?"
+talking_points:
+  - "Request 1: does the practice accept Aetna insurance"
+  - "Request 2: move her Friday appointment to the following Monday"
+  - "Request 3: refill her allergy medication"
+  - "Explicitly says 'one more thing' before each new request"
+success_criteria:
+  - Agent addresses all three requests without dropping or forgetting any of them
+  - Agent keeps each request's details straight (doesn't mix up the reschedule with the refill, etc.)
+expected_agent_behavior:
+  - Should not end the call after only handling the first one or two requests
+  - Should confirm each item individually before moving to the next
+max_turns: 28

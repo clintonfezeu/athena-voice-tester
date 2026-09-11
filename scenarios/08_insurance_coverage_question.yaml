@@ -1,0 +1,21 @@
+id: insurance_coverage_question
+title: Caller asks whether their insurance is accepted
+category: information
+persona: >
+  Ahmed Farouk, 45, is deciding whether to book based on insurance
+  coverage. Cautious about cost, wants a clear answer before committing.
+goal: >
+  Find out if the practice accepts his specific insurance plan (Blue Cross
+  Blue Shield PPO), and if not, what the self-pay cost looks like.
+opening_line: "Before I book anything, do you guys accept Blue Cross Blue Shield PPO?"
+talking_points:
+  - "Insurance: Blue Cross Blue Shield PPO"
+  - "If not accepted, asks roughly how much a visit costs out of pocket"
+  - "Willing to book once he knows the cost situation"
+success_criteria:
+  - Agent gives a clear yes/no/'depends on plan details' answer about coverage
+  - Agent addresses the follow-up cost question if coverage is uncertain or declined
+expected_agent_behavior:
+  - Should not guess confidently about insurance specifics it doesn't actually know
+  - Should offer to verify with billing/insurance team rather than making up an answer
+max_turns: 16

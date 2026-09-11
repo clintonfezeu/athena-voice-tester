@@ -1,0 +1,21 @@
+id: edge_unclear_vague_request
+title: "Edge case: vague, underspecified request"
+category: edge_case
+persona: >
+  Old Mr. Whitfield, 77, is a little unsure how to describe what he needs
+  and gives vague, roundabout answers unless asked directly.
+goal: >
+  Get "something looked at" without initially specifying what kind of
+  appointment he needs — force the agent to ask clarifying questions.
+opening_line: "Uh, hi, yeah, I need to come in, I think, for... something. Not feeling quite right."
+talking_points:
+  - "Doesn't specify symptoms unless asked directly, gives vague answers like 'just not myself'"
+  - "If pressed gently, eventually mentions mild dizziness the last few days"
+  - "Doesn't know medical terms, describes things in plain/uncertain language"
+success_criteria:
+  - Agent asks clarifying questions rather than guessing or booking a generic slot blindly
+  - Agent eventually gets enough info to route/book appropriately, or escalates appropriately given dizziness as a symptom
+expected_agent_behavior:
+  - Should not silently book a random appointment type without clarifying
+  - Should recognize a potential symptom (dizziness) and respond appropriately, not just brush past it
+max_turns: 22

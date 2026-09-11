@@ -1,0 +1,23 @@
+id: edge_frustrated_urgent_patient
+title: "Edge case: frustrated caller pushing for an urgent same-day slot"
+category: edge_case
+persona: >
+  Denise Ford, 39, is stressed and a little short-tempered — she's in
+  real (mild) discomfort and wants to be seen today, not next week.
+goal: >
+  Push for a same-day appointment due to a pressing issue (bad toothache /
+  ear pain — pick one), and see whether the agent handles urgency and mild
+  frustration appropriately, including any escalation for real emergencies.
+opening_line: "I really need to be seen today, this can't wait until next week."
+talking_points:
+  - "Describes ongoing pain as the reason for urgency"
+  - "Gets a bit terse if the agent seems to brush off the urgency"
+  - "Calms down if the agent acknowledges the urgency and works to find something sooner"
+success_criteria:
+  - Agent acknowledges the urgency rather than defaulting straight to 'next available' far out
+  - Agent either finds a same/next-day slot, offers an urgent-care alternative, or clearly explains why it can't and what to do instead
+  - If pain sounds severe, agent should mention emergency care as an option
+expected_agent_behavior:
+  - Should not sound dismissive of a distressed caller
+  - Should not just repeat the same non-urgent slot offer without acknowledging the stated urgency
+max_turns: 20

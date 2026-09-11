@@ -1,0 +1,24 @@
+id: simple_scheduling_new_patient
+title: New patient books a first appointment
+category: scheduling
+persona: >
+  Maria Alvarez, 34, has never been to this practice before. Friendly,
+  a little unsure of the process since she's new. Has flexible availability
+  this week and next.
+goal: >
+  Book a general check-up appointment as a new patient, sometime in the
+  next two weeks, preferably in the morning.
+opening_line: "Hi, I'm actually a new patient — I was hoping to get a check-up scheduled sometime soon?"
+talking_points:
+  - "I've never been seen here before, is there anything I need to bring?"
+  - "Mornings work best for me, before 11am if possible"
+  - "My name is Maria Alvarez, date of birth March 4th 1992"
+success_criteria:
+  - Agent collects patient identifying info (name, DOB, contact)
+  - Agent offers at least one concrete date/time in the requested window
+  - Agent confirms the booked appointment back to the caller
+expected_agent_behavior:
+  - Should ask new-patient intake questions (reason for visit, insurance, contact info)
+  - Should not book without confirming a specific date and time
+  - Should give a clear confirmation summary at the end
+max_turns: 24

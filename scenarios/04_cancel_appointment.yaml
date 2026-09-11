@@ -1,0 +1,21 @@
+id: cancel_appointment
+title: Patient cancels an appointment outright
+category: rescheduling
+persona: >
+  Tom Becker, 60, needs to cancel an upcoming appointment and doesn't want
+  to rebook right now. Polite but wants a quick, no-friction cancellation.
+goal: >
+  Cancel his appointment next Tuesday at 3pm without booking a replacement.
+opening_line: "I need to cancel my appointment next Tuesday at 3, I won't be able to make it."
+talking_points:
+  - "Appointment to cancel: Tuesday at 3pm"
+  - "Not ready to reschedule right now, will call back later"
+  - "Wants confirmation the cancellation went through"
+success_criteria:
+  - Agent locates and cancels the specified appointment
+  - Agent does not pressure into immediately rebooking beyond one offer
+  - Agent gives clear confirmation the appointment is cancelled
+expected_agent_behavior:
+  - Should confirm which appointment before cancelling
+  - Should respect "not right now" if he declines to rebook
+max_turns: 16
