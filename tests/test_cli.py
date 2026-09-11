@@ -1,3 +1,4 @@
+import json
 from unittest.mock import patch
 
 from click.testing import CliRunner
@@ -75,3 +76,70 @@ def test_run_batch_command_fails_when_any_call_fails(settings_env):
     with patch("bot.cli.run_batch", return_value=[failed]):
         result = runner.invoke(cli, ["run-batch"])
     assert result.exit_code != 0
+
+
+def test_analyze_all_skips_calls_without_transcript(settings_env, tmp_path, monkeypatch):
+    import bot.cli as cli_module
+
+    monkeypatch.setattr(cli_module, "CALLS_DIR", tmp_path)
+    (tmp_path / "no-transcript-call").mkdir()
+
+    runner = CliRunner()
+    result = runner.invoke(cli, ["analyze-all"])
+    assert result.exit_code == 0
+    assert "Analyzed 0 call(s)." in result.output
+
+
+def test_analyze_all_analyzes_calls_with_transcript(settings_env, tmp_path, monkeypatch):
+    import bot.cli as cli_module
+
+    monkeypatch.setattr(cli_module, "CALLS_DIR", tmp_path)
+    call_dir = tmp_path / "simple_scheduling_new_patient-abcd1234"
+    call_dir.mkdir()
+    (call_dir / "transcript.json").write_text(
+        json.dumps({"call_id": "x", "scenario_id": "simple_scheduling_new_patient", "turns": []}),
+        encoding="utf-8",
+    )
+    (call_dir / "metadata.json").write_text(
+        json.dumps({"scenario_id": "simple_scheduling_new_patient"}), encoding="utf-8"
+    )
+
+    runner = CliRunner()
+    with patch("bot.cli.analyze_and_save") as mock_analyze:
+        result = runner.invoke(cli, ["analyze-all"])
+
+    assert result.exit_code == 0
+    assert mock_analyze.called
+    assert "Analyzed 1 call(s)." in result.output
+
+
+def test_analyze_all_skips_already_analyzed_unless_forced(settings_env, tmp_path, monkeypatch):
+    import bot.cli as cli_module
+
+    monkeypatch.setattr(cli_module, "CALLS_DIR", tmp_path)
+    call_dir = tmp_path / "c1"
+    call_dir.mkdir()
+    (call_dir / "transcript.json").write_text(
+        json.dumps({"call_id": "x", "scenario_id": "simple_scheduling_new_patient", "turns": []}),
+        encoding="utf-8",
+    )
+    (call_dir / "findings.json").write_text("[]", encoding="utf-8")
+
+    runner = CliRunner()
+    with patch("bot.cli.analyze_and_save") as mock_analyze:
+        result = runner.invoke(cli, ["analyze-all"])
+    assert not mock_analyze.called
+    assert "Analyzed 0 call(s)." in result.output
+
+    with patch("bot.cli.analyze_and_save") as mock_analyze:
+        result = runner.invoke(cli, ["analyze-all", "--force"])
+    assert mock_analyze.called
+    assert "Analyzed 1 call(s)." in result.output
+
+
+def test_build_report_command_writes_file(settings_env, tmp_path):
+    out_path = tmp_path / "reports" / "BUG_REPORT.md"
+    runner = CliRunner()
+    result = runner.invoke(cli, ["build-report", "--out", str(out_path)])
+    assert result.exit_code == 0
+    assert out_path.exists()
