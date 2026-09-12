@@ -5,7 +5,7 @@ plays a simulated "patient" through a realistic phone conversation,
 records and transcribes both sides, and automatically flags quality bugs
 in Athena's responses.
 
-Built for the Pretty Good AI AI Engineering Challenge — see
+Built for the AI Engineering Challenge at Pretty Good AI — see
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for how it works and why
 it's built this way, and [`reports/BUG_REPORT.md`](reports/BUG_REPORT.md)
 for findings from real calls.
@@ -56,12 +56,26 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
 cp .env.example .env
-# fill in TWILIO_ACCOUNT_SID / TWILIO_AUTH_TOKEN / TWILIO_FROM_NUMBER,
-# OPENAI_API_KEY, and PUBLIC_BASE_URL (see below)
 ```
 
-Twilio needs a public HTTPS/WSS URL to reach this app for TwiML and the
-media stream. In one terminal:
+### Getting your credentials
+
+- **Twilio** — sign up at [twilio.com](https://www.twilio.com). Your
+  `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` are on the Console
+  dashboard homepage. Under **Phone Numbers → Manage → Buy a number**,
+  get one number to use as `TWILIO_FROM_NUMBER` — a trial number works
+  fine for this.
+- **OpenAI** — create a key at
+  [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+  for `OPENAI_API_KEY`. Realtime API access is tied to your account's
+  usage tier; if `gpt-realtime` isn't available yet, add a small amount
+  of billing credit to unlock it.
+- **ngrok** — sign up free at [ngrok.com](https://ngrok.com), install
+  it, and run `ngrok config add-authtoken <your token>` once. From then
+  on, `ngrok http 8000` gives you a public URL for `PUBLIC_BASE_URL`.
+
+Twilio needs that public HTTPS/WSS URL to reach this app for TwiML and
+the media stream. In one terminal:
 
 ```bash
 ngrok http 8000
@@ -144,22 +158,18 @@ python -m bot.cli build-report   # regenerate reports/BUG_REPORT.md from the fin
 
 See [`data/README.md`](data/README.md) for the exact per-call file layout.
 
-## Remaining manual steps
+## Submission checklist
 
-Everything above is built and tested, but a few deliverables from the
-challenge brief genuinely require a human (they can't be scripted):
-
-- [ ] Add real Twilio + OpenAI credentials to `.env` and place the actual
-      calls (`run-batch` or individual `call` commands)
-- [ ] Review the resulting recordings/transcripts, pick >= 10 real
-      conversations, and commit them (see "Submitting your calls" above)
-- [ ] Run `analyze-all` + `build-report`, then read over
-      `reports/BUG_REPORT.md` and tighten up the wording by hand
-- [ ] Record the two required Loom videos (project walkthrough, and an AI
-      debugging session) — camera on, your own voice, public link
-- [ ] Note the single phone number you called from, in E.164 format
-- [ ] Submit via the Pretty Good AI submission form: repo link (public),
-      both Loom links (public), and that phone number
+- [ ] Add Twilio + OpenAI credentials to `.env` and run the batch (or
+      individual scenarios) against the live test line
+- [ ] Review the recordings and transcripts, pick the 10+ calls to
+      submit, and commit them (see "Submitting your calls" above)
+- [ ] Run `analyze-all` and `build-report`, then give
+      `reports/BUG_REPORT.md` a final read-through
+- [ ] Record the two Loom videos — project walkthrough, and an AI
+      debugging session
+- [ ] Note the phone number used for testing, in E.164 format
+- [ ] Submit the form: repo link, both Loom links, and that phone number
 
 ## Cost & safety notes
 
